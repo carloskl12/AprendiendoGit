@@ -22,7 +22,7 @@ que el nombre del directorio sea diferente al original se lo agrega al final as�
 
 Lo cual genera el proyecto en un directorio Mygrit.
 
-## Estado de los archivos
+##Estado de los archivos
  
 			$ git status
 
@@ -30,7 +30,7 @@ Permite ver el estado de los archivos, ya sean bajo seguimiento (tracked),
 o sin seguimiento (untracked). Si el archivo esta actualizado no se muestra en la
 lista dada por status.
 
-## Seguimiento de archivos
+##Seguimiento de archivos
 
 			$ git add miArchivo
 
@@ -42,7 +42,7 @@ dos estados, pues hay dos versiones del mismo, una cuando se agregó a seguimien
 y la otra es la que está acualmente en el directorio, si se hace un commit se 
 tendrá en cuenta el archivo en su versión al momento de usar ```git add```.
 
-## Ignorando archivos
+##Ignorando archivos
 Para que git ignore ciertos archivos o directorios se utiliza el archivo .gitignore
 que incluye las expresiones de patrones a ignorar. Por ejemplo *.o *~ pueden ser
 algunos (ficheros objeto, temporales).
@@ -61,7 +61,7 @@ algunos (ficheros objeto, temporales).
 			# ignore all .txt files in the doc/ directory
 			doc/**/*.txt
 
-## Viendo cambios preparado y no preparados
+##Viendo cambios preparado y no preparados
 Para saber exactamente que se ha modificado entre los archivos preparados y los no
 preparados existe :
 
@@ -73,3 +73,50 @@ Para ver las diferencias entre los archivos preparados con los del proyecto en l
 última confiración se usa:
 
 			$ git diff --staged
+
+##Confirmando los cambios (commit)
+
+			$ git commit -m "Cambios realizados"
+
+##Saltándose el area de preparación
+
+			$ git commit -a -m 'Agregados los cambios directamente'
+
+Esta manera confirma todo archivo en seguimiento de la última confirmación, sin
+estar necesariamente en seguimiento.
+
+##Eliminar un archivo
+Se debe eliminar de los archivos bajo seguimiento (eliminarlo del área de 
+preparación), y despues confirmar. ```git rm``` se encarga de esto.
+Si el archivo estaba preparado y luego se desea eliminar, se agrega la opción
+```-f```.
+
+			$ git rm log/\*.log
+
+Tambien se acepta patrones y archivos a eliminar. Para eliminar solamente del
+seguimiento se usa la opción ```--cached```
+
+##Moviendo archivos
+
+			$ git mv README.txt README
+
+Renombra el archivo, equivale a:
+
+			$ mv README.txt README
+			$ git rm README.txt
+			$ git add README
+
+##Viendo el histórico de cofirmaciones
+
+			$ git log
+
+Permite ver el histórico de confirmaciones.
+
+
+##Deshaciendo cosas
+
+			$ git commit --amend -m "Documentos iniciales"
+
+Modifica la ultima confirmación, si no se ha modificado ningún archivo que 
+está en seguimiento, significa que cambiará solo el mensaje de confirmación.
+

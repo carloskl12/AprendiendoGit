@@ -120,3 +120,12 @@ Permite ver el histórico de confirmaciones.
 Modifica la ultima confirmación, si no se ha modificado ningún archivo que 
 está en seguimiento, significa que cambiará solo el mensaje de confirmación.
 
+##Deshaciendo la preparación de un archivo
+Muchas veces se preparan varios archivos, pero para confirmarlos se desea indicar
+que son cambios separados, para ello habrá que retirar el archivo del área de
+preparación:
+
+			$ git reset HEAD miArchivo
+
+Usando ```git status``` se puede ver esto como sugerencia.
+

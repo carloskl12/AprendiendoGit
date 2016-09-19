@@ -70,7 +70,7 @@ preparados existe :
 Para finalizar la revisión de información agregada teclear (q)
 
 Para ver las diferencias entre los archivos preparados con los del proyecto en la
-última confiración se usa:
+última confirmación se usa:
 
 			$ git diff --staged
 
@@ -128,4 +128,65 @@ preparación:
 			$ git reset HEAD miArchivo
 
 Usando ```git status``` se puede ver esto como sugerencia.
+
+##Deshaciendo la modificación de un archivo
+Si un archivo aparece como modificado (```git status```), para volverlo al estado 
+de la última confirmación se utiliza:
+
+			$ git checkout -- Archivo.txt
+
+
+#Trabajando con repositorios remotos
+Para ver los repositorios remotos configurados se usa ```git remote```, o con 
+la opción ```-v```, para ver la url.
+
+##Añadiendo repositorios remotos 
+			$ git remote add [nombre] [url]
+
+El nombre es una forma de evitar escribir el url del repositorio remoto.
+Para recuperar toda la información de un repositorio remoto que aún no tiene
+el proyecto, se usa:
+
+			$ git fetch [remote-name]
+
+fetch solo recupera la información, y la pone en el repositorio local, no la 
+une con el trabajo, ni modifica en lo que está trabajando, esto se debe hacer 
+manualmente. Para unir la rama remota con la actual que se está trabajando,
+se usa ```git pull```
+
+##Enviando al repositorio remoto
+			$ git push [remote-name] [branch-name]
+			$ git push origin master
+
+Si el repositorio remoto fue modificado, y la versión de la rama que actualizamos
+está antes de la modificación no realizada por nosotros, para poder enviar la 
+información debemos descargar la última actualización, y ajustar las modificaciones.
+
+##Inspeccionando un repositorio remoto 
+			$ git remote show [nombre]
+
+Muestra la información de un repositorio remoto en particular.
+
+##Eliminando y renombrando repositorios remotos 
+			$ git remote rename nombre nuevoNombre
+			$ git remote rm  referenciaAEliminar
+
+##Creando etiquetas
+Un tag se usa para identificar puntos específicos que son importantes en la historia
+del proyecto. Para listar las etiquetas se usa ```git tag```. También se pueden
+hacer busquedas acorde a patrones
+			$ git tag -l 'v1.4.2.*'
+
+Existen dos tipos de etiquetas, una simple y una anotada (incluye mas detalles).
+Para una etiqueta anotada:
+
+			$ git tag -a v1.4 -m 'Mi versión 1.4'
+
+Para ver los datos de la etiqueta se puede usar git show.
+
+			$ git show v1.4
+
+Para una etiqueta firmada usando GPG, en vez de ```-a``` se usa ```-s```, para ello se 
+requiere tener disponible una clave privada.
+
 

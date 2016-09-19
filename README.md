@@ -61,7 +61,7 @@ algunos (ficheros objeto, temporales).
 			# ignore all .txt files in the doc/ directory
 			doc/**/*.txt
 
-##Viendo cambios preparado y no preparados
+##Viendo cambios preparados y no preparados
 Para saber exactamente que se ha modificado entre los archivos preparados y los no
 preparados existe :
 
@@ -93,8 +93,10 @@ Si el archivo estaba preparado y luego se desea eliminar, se agrega la opción
 
 			$ git rm log/\*.log
 
+
 Tambien se acepta patrones y archivos a eliminar. Para eliminar solamente del
 seguimiento se usa la opción ```--cached```
+
 
 ##Moviendo archivos
 

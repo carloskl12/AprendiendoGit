@@ -1,7 +1,7 @@
 
 Anotaciones realizadas luego de seguir el [tutorial de git](https://git-scm.com/book/es/v1)
 
-#Crear un proyecto
+# Crear un proyecto
 Para crear un proyecto nuevo:
 
 			$ git init <nombre del proyecto>
@@ -137,7 +137,7 @@ de la última confirmación se utiliza:
 			$ git checkout -- Archivo.txt
 
 
-#Trabajando con repositorios remotos
+# Trabajando con repositorios remotos
 Para ver los repositorios remotos configurados se usa ```git remote```, o con 
 la opción ```-v```, para ver la url.
 

@@ -22,7 +22,7 @@ que el nombre del directorio sea diferente al original se lo agrega al final as�
 
 Lo cual genera el proyecto en un directorio Mygrit.
 
-##Estado de los archivos
+## Estado de los archivos
  
 			$ git status
 
@@ -30,7 +30,7 @@ Permite ver el estado de los archivos, ya sean bajo seguimiento (tracked),
 o sin seguimiento (untracked). Si el archivo esta actualizado no se muestra en la
 lista dada por status.
 
-##Seguimiento de archivos
+## Seguimiento de archivos
 
 			$ git add miArchivo
 
@@ -42,7 +42,7 @@ dos estados, pues hay dos versiones del mismo, una cuando se agregó a seguimien
 y la otra es la que está acualmente en el directorio, si se hace un commit se 
 tendrá en cuenta el archivo en su versión al momento de usar ```git add```.
 
-##Ignorando archivos
+## Ignorando archivos
 Para que git ignore ciertos archivos o directorios se utiliza el archivo .gitignore
 que incluye las expresiones de patrones a ignorar. Por ejemplo *.o *~ pueden ser
 algunos (ficheros objeto, temporales).
@@ -61,7 +61,7 @@ algunos (ficheros objeto, temporales).
 			# ignore all .txt files in the doc/ directory
 			doc/**/*.txt
 
-##Viendo cambios preparados y no preparados
+## Viendo cambios preparados y no preparados
 Para saber exactamente que se ha modificado entre los archivos preparados y los no
 preparados existe :
 
@@ -74,18 +74,18 @@ Para ver las diferencias entre los archivos preparados con los del proyecto en l
 
 			$ git diff --staged
 
-##Confirmando los cambios (commit)
+## Confirmando los cambios (commit)
 
 			$ git commit -m "Cambios realizados"
 
-##Saltándose el area de preparación
+## Saltándose el area de preparación
 
 			$ git commit -a -m 'Agregados los cambios directamente'
 
 Esta manera confirma todo archivo en seguimiento de la última confirmación, sin
 estar necesariamente en seguimiento.
 
-##Eliminar un archivo
+## Eliminar un archivo
 Se debe eliminar de los archivos bajo seguimiento (eliminarlo del área de 
 preparación), y despues confirmar. ```git rm``` se encarga de esto.
 Si el archivo estaba preparado y luego se desea eliminar, se agrega la opción ```-f```.
@@ -97,7 +97,7 @@ Tambien se acepta patrones y archivos a eliminar. Para eliminar solamente del
 seguimiento se usa la opción ```--cached```
 
 
-##Moviendo archivos
+## Moviendo archivos
 
 			$ git mv README.txt README
 
@@ -107,21 +107,21 @@ Renombra el archivo, equivale a:
 			$ git rm README.txt
 			$ git add README
 
-##Viendo el histórico de cofirmaciones
+## Viendo el histórico de cofirmaciones
 
 			$ git log
 
 Permite ver el histórico de confirmaciones.
 
 
-##Deshaciendo cosas
+## Deshaciendo cosas
 
 			$ git commit --amend -m "Documentos iniciales"
 
 Modifica la ultima confirmación, si no se ha modificado ningún archivo que 
 está en seguimiento, significa que cambiará solo el mensaje de confirmación.
 
-##Deshaciendo la preparación de un archivo
+## Deshaciendo la preparación de un archivo
 Muchas veces se preparan varios archivos, pero para confirmarlos se desea indicar
 que son cambios separados, para ello habrá que retirar el archivo del área de
 preparación:
@@ -130,7 +130,7 @@ preparación:
 
 Usando ```git status``` se puede ver esto como sugerencia.
 
-##Deshaciendo la modificación de un archivo
+## Deshaciendo la modificación de un archivo
 Si un archivo aparece como modificado (```git status```), para volverlo al estado 
 de la última confirmación se utiliza:
 
@@ -141,7 +141,7 @@ de la última confirmación se utiliza:
 Para ver los repositorios remotos configurados se usa ```git remote```, o con 
 la opción ```-v```, para ver la url.
 
-##Añadiendo repositorios remotos 
+## Añadiendo repositorios remotos 
 			$ git remote add [nombre] [url]
 
 El nombre es una forma de evitar escribir el url del repositorio remoto.
@@ -155,7 +155,7 @@ une con el trabajo, ni modifica en lo que está trabajando, esto se debe hacer
 manualmente. Para unir la rama remota con la actual que se está trabajando,
 se usa ```git pull```
 
-##Enviando al repositorio remoto
+## Enviando al repositorio remoto
 			$ git push [remote-name] [branch-name]
 			$ git push origin master
 
@@ -163,16 +163,16 @@ Si el repositorio remoto fue modificado, y la versión de la rama que actualizam
 está antes de la modificación no realizada por nosotros, para poder enviar la 
 información debemos descargar la última actualización, y ajustar las modificaciones.
 
-##Inspeccionando un repositorio remoto 
+## Inspeccionando un repositorio remoto 
 			$ git remote show [nombre]
 
 Muestra la información de un repositorio remoto en particular.
 
-##Eliminando y renombrando repositorios remotos 
+## Eliminando y renombrando repositorios remotos 
 			$ git remote rename nombre nuevoNombre
 			$ git remote rm  referenciaAEliminar
 
-##Creando etiquetas
+## Creando etiquetas
 Un tag se usa para identificar puntos específicos que son importantes en la historia
 del proyecto. Para listar las etiquetas se usa ```git tag```. También se pueden
 hacer busquedas acorde a patrones
